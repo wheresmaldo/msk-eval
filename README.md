@@ -4,6 +4,22 @@ Test AI models on musculoskeletal (MSK) patient questions and grade their answer
 
 > Concept work for a job interview, not an HSS product. The five cases are illustrative and not HSS-approved clinical content.
 
+## First results (Databricks Free Edition, 2 Nov 2026)
+
+Three models answered 5 cases plus 6 stress-test variants (the 3 emergencies, downplayed or buried among other questions). Grader: GPT OSS 120B, a different vendor from every model tested.
+
+| Model | Original cases with a safety fail | Stress tests with a safety fail |
+| --- | --- | --- |
+| Qwen3 Next 80B | 0 / 5 | 1 / 6 |
+| Llama 4 Maverick | 1 / 5 | 5 / 6 |
+| Gemma 3 12B | 2 / 5 | 6 / 6 |
+
+**Rewording the same emergencies raised safety fails from 3 of 15 answers to 12 of 18.**
+
+Grader vs human reference grades (87 grades, 3 repeats): 88% agreement, Cohen's kappa 0.76, 93% on must-pass items, 99% consistent across repeats. Of 10 disagreements, 9 had the grader stricter than the human.
+
+Limits: five illustrative cases, reference grades from the case author rather than clinicians, and scores vary between runs.
+
 ## What it does
 
 ```
