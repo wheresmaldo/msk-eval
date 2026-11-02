@@ -97,7 +97,7 @@ import mlflow
 import pandas as pd
 
 user = spark.sql("SELECT current_user()").first()[0]
-mlflow.set_experiment(f"/Users/{user}/msk-eval")
+mlflow.set_experiment(f"/Users/{user}/msk-eval-runs")  # not "msk-eval": that name is the Git folder
 
 with mlflow.start_run(run_name=f"eval {datetime.now(timezone.utc):%Y-%m-%d %H:%M}") as run:
     mlflow.log_params({"models": ",".join(MODELS), "judge": JUDGE, "cases": len(cases)})

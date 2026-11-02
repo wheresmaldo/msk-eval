@@ -48,7 +48,7 @@ from datetime import datetime, timezone
 import mlflow
 
 user = spark.sql("SELECT current_user()").first()[0]
-mlflow.set_experiment(f"/Users/{user}/msk-eval")
+mlflow.set_experiment(f"/Users/{user}/msk-eval-runs")  # not "msk-eval": that name is the Git folder
 with mlflow.start_run(run_name=f"grader check {datetime.now(timezone.utc):%Y-%m-%d %H:%M}"):
     mlflow.log_params({"judge": JUDGE, "repeats": REPEATS})
     mlflow.log_metrics({k: result[k] for k in
