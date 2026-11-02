@@ -2,7 +2,7 @@
 
 Test AI models on musculoskeletal (MSK) patient questions and grade their answers against clinician-written rubrics. Built as the technical proof of concept for the HSS Atlas commercial case.
 
-> Concept work for a job interview, not an HSS product. The five cases are illustrative and not HSS-approved clinical content.
+> Concept work for a POC, not an HSS product. The five cases are illustrative and not HSS-approved clinical content.
 
 ## First results (Databricks Free Edition, 2 Nov 2026)
 
