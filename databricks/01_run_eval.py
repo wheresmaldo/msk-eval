@@ -22,16 +22,19 @@ sys.path.insert(0, os.path.abspath(".."))
 from mlflow.deployments import get_deploy_client
 
 # Which chat models does this workspace have? Pick from this list for the widgets below.
-endpoints = get_deploy_client("databricks").list_endpoints()
-chat = sorted(e["name"] for e in endpoints if "chat" in str(e.get("task", "")))
-print("\n".join(chat) or "No chat endpoints found. Check the Serving page.")
+try:
+    endpoints = get_deploy_client("databricks").list_endpoints()
+    chat = sorted(e["name"] for e in endpoints if "chat" in str(e.get("task", "")))
+    print("\n".join(chat) or "No chat endpoints listed; the defaults below may still work.")
+except Exception as e:
+    print(f"Could not list endpoints ({e}); the defaults below may still work.")
 
 # COMMAND ----------
 
 dbutils.widgets.text("catalog", "workspace")
 dbutils.widgets.text("schema", "msk_eval")
-dbutils.widgets.text("models", "databricks-meta-llama-3-3-70b-instruct,databricks-gpt-oss-120b")
-dbutils.widgets.text("judge", "databricks-meta-llama-3-3-70b-instruct")
+dbutils.widgets.text("models", "databricks-gpt-5,databricks-gemini-3-6-flash,databricks-deepseek-v4-1-flash")
+dbutils.widgets.text("judge", "databricks-claude-sonnet-4-5")
 dbutils.widgets.dropdown("variants", "yes", ["yes", "no"])
 
 CATALOG = dbutils.widgets.get("catalog")

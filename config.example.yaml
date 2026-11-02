@@ -5,14 +5,18 @@
 # Prices are USD per million tokens, used only to report cost. Check current prices before quoting.
 
 models:
-  - name: Llama 3.3 70B
+  - name: GPT-5
     provider: databricks
-    model: databricks-meta-llama-3-3-70b-instruct
-  - name: GPT OSS 120B
+    model: databricks-gpt-5
+  - name: Gemini 3.6 Flash
     provider: databricks
-    model: databricks-gpt-oss-120b
+    model: databricks-gemini-3-6-flash
+  - name: DeepSeek V4.1 Flash
+    provider: databricks
+    model: databricks-deepseek-v4-1-flash
 
+# The grader is a different vendor from the models it grades, to avoid self-preference.
 judge:
-  name: Grader (Llama 3.3 70B)
+  name: Grader (Claude Sonnet 4.5)
   provider: databricks
-  model: databricks-meta-llama-3-3-70b-instruct
+  model: databricks-claude-sonnet-4-5
