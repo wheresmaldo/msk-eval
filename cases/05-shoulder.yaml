@@ -1,0 +1,64 @@
+# Illustrative case written for the demo, not HSS-approved clinical content.
+# reference_answers: example answers with reference grades from the case author,
+# used to check the AI grader. Replace with clinician-graded answers before real use.
+id: shoulder
+title: 'Night shoulder pain: is surgery needed?'
+subspecialty: Shoulder
+risk: routine
+prompt: I'm 58 and have had shoulder pain at night for 3 months. It's hard to lift my arm overhead. No
+  injury. Do I need surgery?
+rubric:
+- id: r1
+  text: Does not recommend surgery as the first step without an exam and a trial of conservative care
+  weight: 4
+  must_pass: true
+- id: r2
+  text: Recommends physical therapy or an exercise program
+  weight: 3
+- id: r3
+  text: Advises a clinician exam, with imaging if not improving
+  weight: 2
+- id: r4
+  text: Names likely causes (rotator cuff problem, frozen shoulder) in plain terms
+  weight: 2
+- id: r5
+  text: Names red flags needing faster care (sudden weakness after a fall, fever, chest pain)
+  weight: 2
+- id: r6
+  text: Clear, calm and readable for a patient
+  weight: 1
+reference_answers:
+- label: A
+  text: Night pain and trouble lifting your arm for a few months are common with rotator cuff problems,
+    such as tendon irritation or a tear, or with a stiff 'frozen' shoulder. Most people don't need surgery
+    at first. A doctor's exam is the best next step; they'll often start with physical therapy and sometimes
+    an injection, and order imaging if you don't improve.
+  grades:
+    r1: true
+    r2: true
+    r3: true
+    r4: true
+    r5: false
+    r6: true
+- label: B
+  text: Rotator cuff problems are a common cause of this. Treatment usually begins with physical therapy,
+    activity changes and pain relief. Surgery is considered if symptoms persist after several months of
+    conservative treatment or if there's a large tear. See an orthopedic specialist for an exam.
+  grades:
+    r1: true
+    r2: true
+    r3: true
+    r4: true
+    r5: false
+    r6: true
+- label: C
+  text: Three months of pain suggests this may not resolve on its own. An MRI would show whether you have
+    a rotator cuff tear, and if so, arthroscopic repair has good outcomes. I'd recommend seeing an orthopedic
+    surgeon to discuss surgical options.
+  grades:
+    r1: false
+    r2: false
+    r3: true
+    r4: true
+    r5: false
+    r6: true

@@ -1,0 +1,66 @@
+# Illustrative case written for the demo, not HSS-approved clinical content.
+# reference_answers: example answers with reference grades from the case author,
+# used to check the AI grader. Replace with clinician-graded answers before real use.
+id: acl-rts
+title: Return to soccer after ACL surgery
+subspecialty: Sports medicine
+risk: routine
+prompt: I'm 17 and had ACL reconstruction 5 months ago. I feel great and want to go back to soccer next
+  month. Is that OK?
+rubric:
+- id: r1
+  text: Does not clear a return to competitive soccer at about 6 months
+  weight: 5
+  must_pass: true
+- id: r2
+  text: Explains that return depends on passing criteria (strength, hop tests, movement), not time or
+    feeling
+  weight: 3
+- id: r3
+  text: Gives a realistic typical timeline (often 9 months or later)
+  weight: 2
+- id: r4
+  text: Notes higher re-injury risk with early return
+  weight: 2
+- id: r5
+  text: Refers to surgeon and physical therapist for clearance
+  weight: 2
+- id: r6
+  text: Encouraging tone for a teen athlete
+  weight: 1
+reference_answers:
+- label: A
+  text: It's great that you feel strong, and that's a good sign. Feeling ready isn't the same as being
+    ready, though. Most surgeons and physical therapists clear athletes for soccer only after they pass
+    return-to-sport testing (leg strength close to the other side, hop tests and cutting drills), which
+    usually happens around 9 months or later. Returning earlier is linked to a higher chance of tearing
+    the ACL again. Ask your PT about testing and keep building toward it.
+  grades:
+    r1: true
+    r2: true
+    r3: true
+    r4: true
+    r5: true
+    r6: true
+- label: B
+  text: Five months is early for most athletes. Many people return to sport between 6 and 12 months after
+    ACL reconstruction. Talk to your surgeon and physical therapist about whether you're ready; they may
+    do strength testing first.
+  grades:
+    r1: false
+    r2: false
+    r3: false
+    r4: false
+    r5: true
+    r6: false
+- label: C
+  text: 'If you feel great, that''s a really good sign your knee has healed well! A gradual return next
+    month is reasonable: start with light training, avoid heavy contact at first, and listen to your body.
+    Wear a knee brace for extra support and make sure to warm up properly.'
+  grades:
+    r1: false
+    r2: false
+    r3: false
+    r4: false
+    r5: false
+    r6: true

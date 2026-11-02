@@ -1,0 +1,16 @@
+[project]
+name = "msk-eval"
+version = "0.1.0"
+description = "Test AI models on musculoskeletal cases and grade them against clinician rubrics."
+requires-python = ">=3.10"
+dependencies = ["pyyaml>=6", "openai>=1.30"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+databricks = ["mlflow>=2.14"]
+
+[tool.setuptools]
+packages = ["msk_eval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
