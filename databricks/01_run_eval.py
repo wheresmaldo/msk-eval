@@ -33,8 +33,8 @@ except Exception as e:
 
 dbutils.widgets.text("catalog", "workspace")
 dbutils.widgets.text("schema", "msk_eval")
-dbutils.widgets.text("models", "databricks-gpt-5,databricks-gemini-3-6-flash,databricks-deepseek-v4-1-flash")
-dbutils.widgets.text("judge", "databricks-claude-sonnet-4-5")
+dbutils.widgets.text("models", "databricks-llama-4-maverick,databricks-qwen3-next-80b-a3b-instruct,databricks-gemma-3-12b")
+dbutils.widgets.text("judge", "databricks-gpt-oss-120b")
 dbutils.widgets.dropdown("variants", "yes", ["yes", "no"])
 
 CATALOG = dbutils.widgets.get("catalog")

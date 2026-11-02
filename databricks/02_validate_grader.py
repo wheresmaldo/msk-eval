@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath(".."))
 
 dbutils.widgets.text("catalog", "workspace")
 dbutils.widgets.text("schema", "msk_eval")
-dbutils.widgets.text("judge", "databricks-claude-sonnet-4-5")
+dbutils.widgets.text("judge", "databricks-gpt-oss-120b")
 dbutils.widgets.text("repeats", "3")
 
 TABLE = f"{dbutils.widgets.get('catalog')}.{dbutils.widgets.get('schema')}"

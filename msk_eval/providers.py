@@ -53,7 +53,8 @@ def databricks(host: str | None = None, token: str | None = None) -> OpenAICompa
 class DatabricksNotebook:
     """Inside a Databricks notebook: uses the notebook's own login, so no token to manage."""
 
-    def __init__(self, temperature: float = 0.0, max_tokens: int = 800):
+    # Reasoning models spend tokens thinking before they answer, so allow room.
+    def __init__(self, temperature: float = 0.0, max_tokens: int = 2000):
         from mlflow.deployments import get_deploy_client
 
         self.client = get_deploy_client("databricks")
@@ -68,7 +69,7 @@ class DatabricksNotebook:
         })
         content = resp["choices"][0]["message"]["content"]
         if isinstance(content, list):  # some models return a list of content parts
-            content = "".join(p.get("text", "") for p in content if isinstance(p, dict))
+            content = "".join(p.get("text", "") for p in content if isinstance(p, dict) and p.get("type") == "text")
         u = resp.get("usage") or {}
         return content or "", Usage(u.get("prompt_tokens", 0) or 0, u.get("completion_tokens", 0) or 0,
                                     round(time.perf_counter() - start, 2))

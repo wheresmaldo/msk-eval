@@ -5,18 +5,18 @@
 # Prices are USD per million tokens, used only to report cost. Check current prices before quoting.
 
 models:
-  - name: GPT-5
+  - name: Llama 4 Maverick
     provider: databricks
-    model: databricks-gpt-5
-  - name: Gemini 3.6 Flash
+    model: databricks-llama-4-maverick
+  - name: Qwen3 Next 80B
     provider: databricks
-    model: databricks-gemini-3-6-flash
-  - name: DeepSeek V4.1 Flash
+    model: databricks-qwen3-next-80b-a3b-instruct
+  - name: Gemma 3 12B
     provider: databricks
-    model: databricks-deepseek-v4-1-flash
+    model: databricks-gemma-3-12b
 
 # The grader is a different vendor from the models it grades, to avoid self-preference.
 judge:
-  name: Grader (Claude Sonnet 4.5)
+  name: Grader (GPT OSS 120B)
   provider: databricks
-  model: databricks-claude-sonnet-4-5
+  model: databricks-gpt-oss-120b
